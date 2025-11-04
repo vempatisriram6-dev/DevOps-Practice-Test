@@ -1,51 +1,54 @@
+#!/bin/bash
 
-# ----------------------------------------------------
-# VERIFY BACKUP
-# ----------------------------------------------------
-verify_backup() {
-    local BACKUP_FILE="$1"
-    local CHECKSUM_FILE="$BACKUP_FILE.sha256"
+# ================================
+# 🔒 Automated Backup Script
+# ================================
 
-    echo "🔍 Verifying backup integrity..."
+CONFIG_FILE="./backup.config"
 
-    # 1️⃣ Check if checksum file exists
-    if [ ! -f "$CHECKSUM_FILE" ]; then
-        echo "❌ Checksum file missing!"
-        return 1
-    fi
+# Load configuration
+if [ -f "$CONFIG_FILE" ]; then
+    source "$CONFIG_FILE"
+else
+    echo "[ERROR] Configuration file not found: $CONFIG_FILE"
+    exit 1
+fi
 
-    # 2️⃣ Recalculate checksum and compare
-    local NEW_SUM
-    NEW_SUM=$(sha256sum "$BACKUP_FILE" | awk '{print $1}')
-    local OLD_SUM
-    OLD_SUM=$(awk '{print $1}' "$CHECKSUM_FILE")
+# Ensure log directory exists
+mkdir -p "$(dirname "$LOG_FILE")"
 
-    if [ "$NEW_SUM" != "$OLD_SUM" ]; then
-        echo "❌ Checksum mismatch! Backup file may be corrupted."
-        return 1
-    fi
-
-    # 3️⃣ Test extraction of a random file
-    tar -tzf "$BACKUP_FILE" > /tmp/filelist.txt 2>/dev/null
-    if [ $? -ne 0 ]; then
-        echo "❌ Failed to read archive file list!"
-        return 1
-    fi
-
-    local TEST_FILE
-    TEST_FILE=$(shuf -n 1 /tmp/filelist.txt)
-
-    if [ -z "$TEST_FILE" ]; then
-        echo "❌ Archive is empty!"
-        return 1
-    fi
-
-    tar -xzf "$BACKUP_FILE" -C /tmp "$TEST_FILE" 2>/dev/null
-    if [ $? -ne 0 ]; then
-        echo "❌ Failed to extract test file!"
-        return 1
-    fi
-
-    echo "✅ Verification SUCCESS — backup is valid!"
-    return 0
+# Function for both logging and displaying output
+log() {
+    echo "$1" | tee -a "$LOG_FILE"
 }
+
+# Start backup
+START_TIME=$(date '+%Y-%m-%d %H:%M:%S')
+TIMESTAMP=$(date '+%Y-%m-%d-%H%M')
+BACKUP_FILE="$BACKUP_DESTINATION/backup-$TIMESTAMP.tar.gz"
+CHECKSUM_FILE="$BACKUP_FILE.sha256"
+
+log "[INFO] Backup started at $START_TIME"
+
+# Ensure destination exists
+mkdir -p "$BACKUP_DESTINATION"
+
+# Perform backup
+tar --exclude="$BACKUP_DESTINATION" $(for p in ${EXCLUDE_PATTERNS//,/ }; do echo "--exclude=$p"; done) \
+    -czf "$BACKUP_FILE" "$BACKUP_SOURCE" 2>>"$LOG_FILE"
+
+# Check if tar succeeded
+if [ $? -eq 0 ]; then
+    sha256sum "$BACKUP_FILE" > "$CHECKSUM_FILE"
+    log "[SUCCESS] Backup completed: $BACKUP_FILE"
+else
+    log "[ERROR] Backup failed!"
+    exit 1
+fi
+
+# Cleanup old backups
+log "[INFO] Cleaning up old backups..."
+find "$BACKUP_DESTINATION" -name "backup-*.tar.gz" -mtime +$DAILY_KEEP -delete
+log "[INFO] Cleanup completed ✅"
+
+# End of script
