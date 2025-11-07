@@ -209,7 +209,7 @@ Add restore.sh to unpack backups automatically
 
 Integrate with cron logs or systemd timers
 
-💬 Example Commands Summary
+💬 Example  Summary
 Command	Description
 ./backup.sh	Create a new backup
 ./verify_backup.sh backup-file.tar.gz	Verify checksum
@@ -224,3 +224,4 @@ V. Sriram
 💼 GitHub: @vempatisriram6-dev
 
 📘 Project: DevOps Practice Test Repository
+
