@@ -1,4 +1,4 @@
-                                                  Automated Backup System (Bash Script Project)
+                                              Automated Backup System (Bash Script Project)
 
 * A simple Bash-based backup automation system that helps you take automatic backups, verify them, and clean up old ones - all with one command.
 
@@ -103,8 +103,8 @@ This automation script:
 
 # Step 7: Folder Structure
 
-* backup-system/
-
+```bash
+backup-system/
 ├── backup.sh               # Main script
 ├── verify_backup.sh        # Backup verification script
 ├── backup.config           # Configuration file
@@ -112,7 +112,10 @@ This automation script:
 │   └── backup.log          # Log file
 ├── screenshots/
 │   └── backup-output.png   # Example output
-└── README.md               # Documentation
+└── README.md
+
+
+
 
 # Step 8: Example Output (Screenshot)
 
@@ -246,6 +249,7 @@ V. Sriram
  GitHub: @vempatisriram6-dev
  
 Project: DevOps Practice Test Repository
+
 
 
 
