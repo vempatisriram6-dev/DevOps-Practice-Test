@@ -39,10 +39,11 @@ This automation script:
 
 * Git Bash on Windows or Terminal on Linux/Mac
 
-& tar and sha256sum utilities (installed by default on most systems)
+* tar and sha256sum utilities (installed by default on most systems)
 
 # Step 2: Clone the Repository
 * git clone https://github.com/vempatisriram6-dev/DevOps-Practice-Test.git
+  
 * cd backup-system
 
 # Step 3: Configure the Backup
@@ -55,14 +56,14 @@ This automation script:
  
 * LOG_FILE="./logs/backup.log"
 
-EXCLUDE_PATTERNS=".git,node_modules,.cache"
+* EXCLUDE_PATTERNS=".git,node_modules,.cache"
 
 * DAILY_KEEP=7
 * WEEKLY_KEEP=4
 * MONTHLY_KEEP=3
 
 
-*You can adjust retention numbers or excluded folders anytime.
+* You can adjust retention numbers or excluded folders anytime.
 
 # Step 4: Run the Backup
 * ./backup.sh
@@ -85,7 +86,7 @@ EXCLUDE_PATTERNS=".git,node_modules,.cache"
 
 <> If verification passes, you’ll see:
 
-* [SUCCESS] Checksum verified successfully ✅
+* [SUCCESS] Checksum verified successfully 
 
 # Step 6: Check Logs
 
@@ -102,7 +103,8 @@ EXCLUDE_PATTERNS=".git,node_modules,.cache"
 
 # Step 7: Folder Structure
 
-backup-system/
+* backup-system/
+
 ├── backup.sh               # Main script
 ├── verify_backup.sh        # Backup verification script
 ├── backup.config           # Configuration file
@@ -180,55 +182,70 @@ Added checksum validation to verify backup integrity
 
 #  E. Testing
 **  Functional Tests
-Test	Description	Result
 
-Backup creation	Run ./backup.sh	 Success
-Backup rotation	Created multiple backups	 Old backups removed
-Checksum verification	Using verify_backup.sh	 Passed
-Exclude patterns	.git, node_modules, .cache	 Ignored
-Error handling	Tried invalid source folder	 Graceful error
+# Test	Description	Result
 
-<> Example Backup Log:
+* Backup creation	Run ./backup.sh	 Success
+
+* Backup rotation	Created multiple backups	 Old backups removed
+
+* Checksum verification	Using verify_backup.sh	 Passed
+
+* Exclude patterns	.git, node_modules, .cache	 Ignored
+
+* Error handling	Tried invalid source folder	 Graceful error
+
+# Example Backup Log:
 
 [INFO] Backup started at 2025-11-03 19:30:00
+
 [SUCCESS] Backup completed: /c/Users/vempa/Desktop/backups/backup-2025-11-03-1930.tar.gz
+
 [INFO] Rotation check complete – old backups removed
+
 [INFO] Backup finished successfully 
 
  # F. Known Limitations
 
-Script doesn’t handle remote/cloud backups yet (local only)
+* Script doesn’t handle remote/cloud backups yet (local only)
 
-tar compression speed may be slow for very large files
+* tar compression speed may be slow for very large files
 
-Rotation works by filename date, not by file size
+* Rotation works by filename date, not by file size
 
-No real-time progress bar (can be added later)
+* No real-time progress bar (can be added later)
 
-🚀 Future Improvements
+# Future Improvements:
 
-Add remote upload support (AWS S3 / Google Drive)
+* Add remote upload support (AWS S3 / Google Drive)
 
-Add email notifications after each backup
+* Add email notifications after each backup
 
-Add restore.sh to unpack backups automatically
+* Add restore.sh to unpack backups automatically
 
-Integrate with cron logs or systemd timers
+* Integrate with cron logs or systemd timers
 
-💬 Example  Summary
-Command	Description
+#  Example  Summary:
+
+<> Command	Description:
+
 ./backup.sh	Create a new backup
+
 ./verify_backup.sh backup-file.tar.gz	Verify checksum
+
 cat logs/backup.log	View logs
+
 ls /c/Users/vempa/Desktop/backups	View all backups
+
 ./push_all.sh	(Optional) Commit + Push to GitHub
 
 
-	Author
+# Author:
 
 V. Sriram
-💼 GitHub: @vempatisriram6-dev
+ GitHub: @vempatisriram6-dev
+ 
+Project: DevOps Practice Test Repository
 
-📘 Project: DevOps Practice Test Repository
 
 
