@@ -1,8 +1,8 @@
                                                   Automated Backup System (Bash Script Project)
 
-A simple Bash-based backup automation system that helps you take automatic backups, verify them, and clean up old ones — all with one command.
+* A simple Bash-based backup automation system that helps you take automatic backups, verify them, and clean up old ones - all with one command.
 
-It’s perfect for students, developers, or DevOps learners who want to automate local backups and understand backup rotation concepts.
+* It’s perfect for students, developers, or DevOps learners who want to automate local backups and understand backup rotation concepts.
 
 #  A. Project Overview
 <> What Does This Script Do?
@@ -246,6 +246,7 @@ V. Sriram
  GitHub: @vempatisriram6-dev
  
 Project: DevOps Practice Test Repository
+
 
 
 
