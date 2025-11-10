@@ -1,104 +1,107 @@
-             Automated Backup System (Bash Script Project)
+                                                  Automated Backup System (Bash Script Project)
 
 A simple Bash-based backup automation system that helps you take automatic backups, verify them, and clean up old ones — all with one command.
 
 It’s perfect for students, developers, or DevOps learners who want to automate local backups and understand backup rotation concepts.
 
-🧩 A. Project Overview
-🧠 What Does This Script Do?
+#  A. Project Overview
+<> What Does This Script Do?
 
-This project automates the backup of a chosen folder by:
+* This project automates the backup of a chosen folder by:
 
-Compressing the target directory into a .tar.gz archive
+* Compressing the target directory into a .tar.gz archive
 
-Generating a SHA256 checksum to ensure file integrity
+* Generating a SHA256 checksum to ensure file integrity
 
-Skipping unwanted folders like .git, node_modules, and .cache
+* Skipping unwanted folders like .git, node_modules, and .cache
 
-Automatically rotating backups (keeping only the latest 7 daily, 4 weekly, and 3 monthly backups)
+* Automatically rotating backups (keeping only the latest 7 daily, 4 weekly, and 3 monthly backups)
 
-Logging every backup operation into logs/backup.log
+* Logging every backup operation into logs/backup.log
 
-💡 Why It’s Useful
+# Why It’s Useful
 
 Manual backups are time-consuming and prone to human error.
 This automation script:
 
-Keeps your files safe automatically
+* Keeps your files safe automatically
 
-Saves disk space using rotation
+* Saves disk space using rotation
 
-Provides clear logs for troubleshooting
+* Provides clear logs for troubleshooting
 
-Can be easily customized for any system
+* Can be easily customized for any system
 
-⚙️ B. How to Use It (Step-by-Step)
-🪜 Step 1: Prerequisites
+# B. How to Use It (Step-by-Step)
+# Step 1: Prerequisites
 
-Make sure you have:
+<> Make sure you have:
 
-Git Bash on Windows or Terminal on Linux/Mac
+* Git Bash on Windows or Terminal on Linux/Mac
 
-tar and sha256sum utilities (installed by default on most systems)
+& tar and sha256sum utilities (installed by default on most systems)
 
-🪜 Step 2: Clone the Repository
-git clone https://github.com/vempatisriram6-dev/DevOps-Practice-Test.git
-cd backup-system
+# Step 2: Clone the Repository
+* git clone https://github.com/vempatisriram6-dev/DevOps-Practice-Test.git
+* cd backup-system
 
-🪜 Step 3: Configure the Backup
+# Step 3: Configure the Backup
 
-Open the file backup.config and update these paths:
+<> Open the file backup.config and update these paths:
 
-BACKUP_SOURCE="/c/Users/vempa/Desktop/test_folder"
-BACKUP_DESTINATION="/c/Users/vempa/Desktop/backups"
-LOG_FILE="./logs/backup.log"
+* BACKUP_SOURCE="/c/Users/vempa/Desktop/test_folder"
+ 
+* BACKUP_DESTINATION="/c/Users/vempa/Desktop/backups"
+ 
+* LOG_FILE="./logs/backup.log"
 
 EXCLUDE_PATTERNS=".git,node_modules,.cache"
 
-DAILY_KEEP=7
-WEEKLY_KEEP=4
-MONTHLY_KEEP=3
+* DAILY_KEEP=7
+* WEEKLY_KEEP=4
+* MONTHLY_KEEP=3
 
 
-You can adjust retention numbers or excluded folders anytime.
+*You can adjust retention numbers or excluded folders anytime.
 
-🪜 Step 4: Run the Backup
-./backup.sh
-
-
-This will:
-
-Create a new backup in your destination folder
-
-Save logs in logs/backup.log
-
-Display success/failure messages in the terminal
-
-🪜 Step 5: Verify the Backup
-
-To verify that the backup was created and matches its checksum:
-
-./verify_backup.sh backup-YYYY-MM-DD-HHMM.tar.gz
+# Step 4: Run the Backup
+* ./backup.sh
 
 
-If verification passes, you’ll see:
+<> This will:
 
-[SUCCESS] Checksum verified successfully ✅
+* Create a new backup in your destination folder
 
-🪜 Step 6: Check Logs
+* Save logs in logs/backup.log
 
-All activities (start, success, cleanup, errors) are stored here:
+* Display success/failure messages in the terminal
 
-logs/backup.log
+# Step 5: Verify the Backup
+
+* To verify that the backup was created and matches its checksum:
+
+* ./verify_backup.sh backup-YYYY-MM-DD-HHMM.tar.gz
 
 
-Example log:
+<> If verification passes, you’ll see:
 
-[INFO] Backup started at 2025-11-03 19:30:00
-[SUCCESS] Backup completed: /c/Users/vempa/Desktop/backups/backup-2025-11-03-1930.tar.gz
-[INFO] Cleanup completed ✅
+* [SUCCESS] Checksum verified successfully ✅
 
-🪜 Step 7: Folder Structure
+# Step 6: Check Logs
+
+<> All activities (start, success, cleanup, errors) are stored here:
+
+* logs/backup.log
+
+
+# Example log:
+
+* [INFO] Backup started at 2025-11-03 19:30:00
+* [SUCCESS] Backup completed: /c/Users/vempa/Desktop/backups/backup-2025-11-03-1930.tar.gz
+* [INFO] Cleanup completed 
+
+# Step 7: Folder Structure
+
 backup-system/
 ├── backup.sh               # Main script
 ├── verify_backup.sh        # Backup verification script
@@ -109,87 +112,90 @@ backup-system/
 │   └── backup-output.png   # Example output
 └── README.md               # Documentation
 
-🪜 Step 8: Example Output (Screenshot)
+# Step 8: Example Output (Screenshot)
 
-📸 Backup output shown in Git Bash:
+<> Backup output shown in Git Bash:
 
-🪜 Step 9: Automation (Optional)
+# Step 9: Automation (Optional)
 
-You can automate this with Windows Task Scheduler or Linux cron jobs.
+* You can automate this with Windows Task Scheduler or Linux cron jobs.
 
-Example cron entry (Linux):
+<> Example cron entry (Linux):
 
-0 2 * * * /path/to/backup-system/backup.sh
-
-
-This runs the backup every day at 2 AM.
-
-🧮 C. How It Works
-🔁 Rotation Algorithm
-
-The script:
-
-Keeps only the 7 most recent daily backups
-
-Keeps only the 4 most recent weekly backups
-
-Keeps only the 3 most recent monthly backups
-
-Deletes older ones automatically
-
-This saves disk space while ensuring recovery options.
-
-🔐 Checksum Creation
-
-For every backup, a .sha256 file is created:
-
-sha256sum backup-2025-11-03-1930.tar.gz > backup-2025-11-03-1930.tar.gz.sha256
+* 0 2 * * * /path/to/backup-system/backup.sh
 
 
-You can recheck integrity anytime using:
+*  runs the backup every day at 2 AM.
 
-sha256sum -c backup-2025-11-03-1930.tar.gz.sha256
+# C. How It Works:
+<> Rotation Algorithm
 
-🧱 D. Design Decisions
-Why This Approach?
+<> The script:
 
-Simple and portable Bash scripting
+* Keeps only the 7 most recent daily backups
 
-No dependency on third-party tools
+* Keeps only the 4 most recent weekly backups
 
-Ideal for beginners learning Linux + DevOps automation
+* Keeps only the 3 most recent monthly backups
 
-Challenges Faced
+* Deletes older ones automatically
 
-Ensuring Windows compatibility for Git Bash
+* This saves disk space while ensuring recovery options.
 
-Managing path conversions (/c/Users/... vs C:\Users\...)
+# Checksum Creation
 
-Proper logging and simultaneous screen display
+<> For every backup, a .sha256 file is created:
 
-How They Were Solved
+* sha256sum backup-2025-11-03-1930.tar.gz > backup-2025-11-03-1930.tar.gz.sha256
 
-Used consistent POSIX-style paths
 
-Implemented dual logging using tee command
+<> You can recheck integrity anytime using:
+
+* sha256sum -c backup-2025-11-03-1930.tar.gz.sha256
+
+# D. Design Decisions
+<> Why This Approach?
+
+* Simple and portable Bash scripting
+
+* No dependency on third-party tools
+
+* Ideal for beginners learning Linux + DevOps automation
+
+# Challenges Faced:
+
+*  Windows compatibility for Git Bash
+
+* Managing path conversions (/c/Users/... vs C:\Users\...)
+
+* Proper logging and simultaneous screen display
+
+# How They Were Solved
+
+* Used consistent POSIX-style paths
+
+* Implemented dual logging using tee command
 
 Added checksum validation to verify backup integrity
 
-🧪 E. Testing
-✅ Functional Tests
+#  E. Testing
+**  Functional Tests
 Test	Description	Result
-Backup creation	Run ./backup.sh	✅ Success
-Backup rotation	Created multiple backups	✅ Old backups removed
-Checksum verification	Using verify_backup.sh	✅ Passed
-Exclude patterns	.git, node_modules, .cache	✅ Ignored
-Error handling	Tried invalid source folder	✅ Graceful error
-Example Backup Log:
+
+Backup creation	Run ./backup.sh	 Success
+Backup rotation	Created multiple backups	 Old backups removed
+Checksum verification	Using verify_backup.sh	 Passed
+Exclude patterns	.git, node_modules, .cache	 Ignored
+Error handling	Tried invalid source folder	 Graceful error
+
+<> Example Backup Log:
+
 [INFO] Backup started at 2025-11-03 19:30:00
 [SUCCESS] Backup completed: /c/Users/vempa/Desktop/backups/backup-2025-11-03-1930.tar.gz
 [INFO] Rotation check complete – old backups removed
-[INFO] Backup finished successfully ✅
+[INFO] Backup finished successfully 
 
-⚠️ F. Known Limitations
+ # F. Known Limitations
 
 Script doesn’t handle remote/cloud backups yet (local only)
 
@@ -224,4 +230,5 @@ V. Sriram
 💼 GitHub: @vempatisriram6-dev
 
 📘 Project: DevOps Practice Test Repository
+
 
