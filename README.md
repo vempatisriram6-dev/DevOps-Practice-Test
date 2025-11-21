@@ -103,16 +103,20 @@ This automation script:
  logs/backup.log
 ```
 ### Step 7: Restore a Backup
+
 * Command:
+  
   ```
   ./backup.sh --restore backup-2025-01-20-1032.tar.gz --to /home/user/output
   ```
 * Output:
+
    ```
     [SUCCESS] Backup restored to /home/user/output
    
     ```
 ### Step 8: List All Backups 
+
 * Command:
   
    ```
@@ -148,7 +152,7 @@ Backup Completed Successfully at Mon Jan 20 10:32:12 IST 2025
  ./backup.sh --incremental
  
 ```
-* Output Created:
+* Output:
 
 ```
 [INFO] Performing incremental backup...
@@ -343,10 +347,13 @@ sha256sum -c backup.tar.gz.sha256
 # Author:
 
 ```
- Name     : V. Sriram
- GitHub   : https://github.com/vempatisriram6-dev/DevOps-Practice-Test.git
- Project  : DevOps Practice Test Repository
+## Author
+**Name:** V. Sriram  
+**GitHub:** https://github.com/vempatisriram6-dev/DevOps-Practice-Test  
+**Project:** DevOps Practice Test Repository
+
 ```
+
 
 
 
