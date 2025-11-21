@@ -102,8 +102,27 @@ This automation script:
 ```
  logs/backup.log
 ```
- ---
- ### Step 7: Email Notification (Simulated)
+### Step 7: Restore a Backup
+* Command:
+  ```
+  ./backup.sh --restore backup-2025-01-20-1032.tar.gz --to /home/user/output
+  ```
+  * Output:
+   ```
+    [SUCCESS] Backup restored to /home/user/output
+  ```
+### Step 8: List All Backups 
+* Command:
+   ```
+   ./backup.sh --list
+ ```
+* Output:
+  ```
+[INFO] Listing available backups...
+-rw-r--r-- 1 user user 5.2M Jan 20 10:32 backup-2025-01-20-1032.tar.gz
+-rw-r--r-- 1 user user 5.3M Jan 19 10:22 backup-2025-01-19-1022.tar.gz
+ ``` 
+ ### Step 8: Email Notification (Simulated)
  
 * The script writes a message to:
 ```
@@ -116,7 +135,7 @@ This automation script:
 Backup Completed Successfully at Mon Jan 20 10:32:12 IST 2025
 
 ```
-### Step 8: Perform Incremental Backup
+### Step 9: Perform Incremental Backup
 * Command:
 ```
  ./backup.sh --incremental
@@ -161,7 +180,7 @@ tar: Removing leading `/' from member names
 ```
 ---
 
-### Step 9: Folder Structure
+### Step 10: Folder Structure
 
 ```
 DevOps-Practice-Test/
@@ -182,7 +201,7 @@ DevOps-Practice-Test/
 
 ---
 
-### Step 10: Example Output (Screenshot)
+### Step 11: Example Output (Screenshot)
 
 ![Screenshot](screenshots/backup-output.png)
 
@@ -190,7 +209,7 @@ DevOps-Practice-Test/
 
 ---
 
-### Step 11: Automation (Optional)
+### Step 12: Automation (Optional)
 
 * You can automate this with Windows Task Scheduler or Linux cron jobs.
 
@@ -271,7 +290,7 @@ sha256sum -c backup.tar.gz.sha256
 | Error handling           | Tried non-existent source folder     | Gracefully handled |
 | Log generation           | Checked `logs/backup.log`            | All events recorded |
 | Integrity check failure  | Modified backup intentionally         | Error detected     |
-
+```
 ---
  # F. Known Limitations
 
@@ -316,6 +335,7 @@ sha256sum -c backup.tar.gz.sha256
  GitHub   : https://github.com/vempatisriram6-dev/DevOps-Practice-Test.git
  Project  : DevOps Practice Test Repository
 ```
+
 
 
 
