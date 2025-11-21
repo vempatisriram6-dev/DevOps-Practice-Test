@@ -1,8 +1,8 @@
 # Automated Backup System (Bash Script Project)
       
-▶  A simple Bash-based backup automation system that creates compressed backups, verifies them using checksums, and automatically removes old backups based on a rotation policy.
+✔  A simple Bash-based backup automation system that creates compressed backups, verifies them using checksums, and automatically removes old backups based on a rotation policy.
 
-▶  It helps users automate local backups efficiently with a single command.
+✔  It helps users automate local backups efficiently with a single command.
 
 ---
 
@@ -209,7 +209,7 @@ backup-system/
 * Added checksum validation to verify backup integrity
 
 #  E. Testing
-**  Functional Tests
+
 ```text
 
 | Test                     | Description                          | Result            |
@@ -280,6 +280,7 @@ backup-system/
  GitHub   : https://github.com/vempatisriram6-dev/DevOps-Practice-Test.git
  Project  : DevOps Practice Test Repository
 ```
+
 
 
 
