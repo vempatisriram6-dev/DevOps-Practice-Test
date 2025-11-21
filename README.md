@@ -1,11 +1,14 @@
-                                              Automated Backup System (Bash Script Project)
+      Automated Backup System (Bash Script Project)
 
 * A simple Bash-based backup automation system that helps you take automatic backups, verify them, and clean up old ones - all with one command.
 
 * It’s perfect for students, developers, or DevOps learners who want to automate local backups and understand backup rotation concepts.
 
+---
+
 #  A. Project Overview
-<> What Does This Script Do?
+
+### What Does This Script Do?
 
 * This project automates the backup of a chosen folder by:
 
@@ -33,7 +36,8 @@ This automation script:
 * Can be easily customized for any system
 
 # B. How to Use It (Step-by-Step)
-# Step 1: Prerequisites
+
+### Step 1: Prerequisites
 
 <> Make sure you have:
 
@@ -41,12 +45,12 @@ This automation script:
 
 * tar and sha256sum utilities (installed by default on most systems)
 
-# Step 2: Clone the Repository
+### Step 2: Clone the Repository
 * git clone https://github.com/vempatisriram6-dev/DevOps-Practice-Test.git
   
 * cd backup-system
 
-# Step 3: Configure the Backup
+### Step 3: Configure the Backup
 
 <> Open the file backup.config and update these paths:
 
@@ -65,7 +69,7 @@ This automation script:
 
 * You can adjust retention numbers or excluded folders anytime.
 
-# Step 4: Run the Backup
+### Step 4: Run the Backup
 * ./backup.sh
 
 
@@ -77,7 +81,7 @@ This automation script:
 
 * Display success/failure messages in the terminal
 
-# Step 5: Verify the Backup
+### Step 5: Verify the Backup
 
 * To verify that the backup was created and matches its checksum:
 
@@ -88,43 +92,48 @@ This automation script:
 
 * [SUCCESS] Checksum verified successfully 
 
-# Step 6: Check Logs
+### Step 6: Check Logs
 
 <> All activities (start, success, cleanup, errors) are stored here:
 
 * logs/backup.log
 
-
+ ---
+ 
 # Example log:
 
 * [INFO] Backup started at 2025-11-03 19:30:00
 * [SUCCESS] Backup completed: /c/Users/vempa/Desktop/backups/backup-2025-11-03-1930.tar.gz
-* [INFO] Cleanup completed 
+* [INFO] Cleanup completed
+
+---
 
 # Step 7: Folder Structure
-
-```bash
+'''bash
 backup-system/
-├── backup.sh               # Main script
+├── backup.sh               # Main backup script
 ├── verify_backup.sh        # Backup verification script
 ├── backup.config           # Configuration file
 ├── logs/
 │   └── backup.log          # Log file
 ├── screenshots/
-│   └── backup-output.png   # Example output
+│   └── backup-output.png   # Example output screenshot
 └── README.md               # Documentation
+'''bash
 
-
+---
 
 # Step 8: Example Output (Screenshot)
 
-<> Backup output shown in Git Bash:
+• Backup output shown in Git Bash:
+
+---
 
 # Step 9: Automation (Optional)
 
 * You can automate this with Windows Task Scheduler or Linux cron jobs.
 
-<> Example cron entry (Linux):
+• Example cron entry (Linux):
 
 * 0 2 * * * /path/to/backup-system/backup.sh
 
@@ -132,9 +141,9 @@ backup-system/
 *  runs the backup every day at 2 AM.
 
 # C. How It Works:
-<> Rotation Algorithm
+• Rotation Algorithm
 
-<> The script:
+• The script:
 
 * Keeps only the 7 most recent daily backups
 
@@ -148,7 +157,7 @@ backup-system/
 
 # Checksum Creation
 
-<> For every backup, a .sha256 file is created:
+• For every backup, a .sha256 file is created:
 
 * sha256sum backup-2025-11-03-1930.tar.gz > backup-2025-11-03-1930.tar.gz.sha256
 
@@ -158,7 +167,7 @@ backup-system/
 * sha256sum -c backup-2025-11-03-1930.tar.gz.sha256
 
 # D. Design Decisions
-<> Why This Approach?
+• Why This Approach?
 
 * Simple and portable Bash scripting
 
@@ -248,6 +257,7 @@ V. Sriram
  GitHub: @vempatisriram6-dev
  
 Project: DevOps Practice Test Repository
+
 
 
 
