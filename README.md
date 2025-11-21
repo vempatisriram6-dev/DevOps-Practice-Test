@@ -171,16 +171,14 @@ backup-system/
 - For every backup, a .sha256 file is created:
 
 ```
-
- sha256sum backup-2025-11-03-1930.tar.gz > backup-2025-11-03-1930.tar.gz.sha256
+ sha256sum backup.tar.gz > backup.tar.gz.sha256
 
 ```
 
  - You can recheck integrity anytime using:
 
 ```text
-
- sha256sum -c backup-2025-11-03-1930.tar.gz.sha256
+sha256sum -c backup.tar.gz.sha256
 
 ```
 
@@ -280,6 +278,7 @@ backup-system/
  GitHub   : https://github.com/vempatisriram6-dev/DevOps-Practice-Test.git
  Project  : DevOps Practice Test Repository
 ```
+
 
 
 
