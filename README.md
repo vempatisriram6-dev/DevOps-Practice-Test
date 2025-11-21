@@ -104,7 +104,7 @@ This automation script:
 ```
  ---
  
-# Example log:
+### Example log:
 
 ```
  [INFO] Backup started at 2025-11-03 19:30:00
@@ -223,7 +223,7 @@ backup-system/
 | Integrity check failure  | Modified backup intentionally         | Error detected     |
 
 ```
-# Example Backup Log:
+### Example Backup Log:
 
 ```text
 
@@ -280,6 +280,7 @@ backup-system/
  GitHub   : https://github.com/vempatisriram6-dev/DevOps-Practice-Test.git
  Project  : DevOps Practice Test Repository
 ```
+
 
 
 
