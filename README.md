@@ -107,24 +107,30 @@ This automation script:
   ```
   ./backup.sh --restore backup-2025-01-20-1032.tar.gz --to /home/user/output
   ```
-  * Output:
+* Output:
    ```
     [SUCCESS] Backup restored to /home/user/output
-  ```
+   
+    ```
 ### Step 8: List All Backups 
 * Command:
+  
    ```
    ./backup.sh --list
- ```
+   
+   ```
 * Output:
-  ```
-[INFO] Listing available backups...
--rw-r--r-- 1 user user 5.2M Jan 20 10:32 backup-2025-01-20-1032.tar.gz
--rw-r--r-- 1 user user 5.3M Jan 19 10:22 backup-2025-01-19-1022.tar.gz
- ``` 
- ### Step 8: Email Notification (Simulated)
+
+   ```
+    [INFO] Listing available backups...
+    -rw-r--r-- 1 user user 5.2M Jan 20 10:32 backup-2025-01-20-1032.tar.gz
+    -rw-r--r-- 1 user user 5.3M Jan 19 10:22 backup-2025-01-19-1022.tar.gz
+  
+  ``` 
+ ### Step 9: Email Notification (Simulated)
  
 * The script writes a message to:
+
 ```
  email.txt
 
@@ -135,25 +141,31 @@ This automation script:
 Backup Completed Successfully at Mon Jan 20 10:32:12 IST 2025
 
 ```
-### Step 9: Perform Incremental Backup
+### Step 10: Perform Incremental Backup
+
 * Command:
 ```
  ./backup.sh --incremental
+ 
 ```
 * Output Created:
+
 ```
 [INFO] Performing incremental backup...
 [SUCCESS] Incremental backup created: /backups/backup-2025-xx.tar.gz
 ```
-* Files Created: 
+* Files Created:
+
 ```
 snapshot.info
 backup-2025-xx.tar.gz
 backup-2025-xx.tar.gz.sha256
+
 ```
 
  
 ### Example log:
+
 
 ```
 [INFO] Starting backup...
@@ -180,7 +192,7 @@ tar: Removing leading `/' from member names
 ```
 ---
 
-### Step 10: Folder Structure
+### Step 11: Folder Structure
 
 ```
 DevOps-Practice-Test/
@@ -201,7 +213,7 @@ DevOps-Practice-Test/
 
 ---
 
-### Step 11: Example Output (Screenshot)
+### Step 12: Example Output (Screenshot)
 
 ![Screenshot](screenshots/backup-output.png)
 
@@ -209,7 +221,7 @@ DevOps-Practice-Test/
 
 ---
 
-### Step 12: Automation (Optional)
+### Step 13: Automation (Optional)
 
 * You can automate this with Windows Task Scheduler or Linux cron jobs.
 
@@ -335,6 +347,7 @@ sha256sum -c backup.tar.gz.sha256
  GitHub   : https://github.com/vempatisriram6-dev/DevOps-Practice-Test.git
  Project  : DevOps Practice Test Repository
 ```
+
 
 
 
