@@ -1,8 +1,8 @@
 # Automated Backup System (Bash Script Project)
       
-* A simple Bash-based backup automation system that helps you take automatic backups, verify them, and clean up old ones - all with one command.
+▶  A simple Bash-based backup automation system that creates compressed backups, verifies them using checksums, and automatically removes old backups based on a rotation policy.
 
-* It’s perfect for students, developers, or DevOps learners who want to automate local backups and understand backup rotation concepts.
+▶  It helps users automate local backups efficiently with a single command.
 
 ---
 
@@ -152,9 +152,9 @@ backup-system/
  ---
 
 # C. How It Works:
-‣ Rotation Algorithm
+▸ Rotation Algorithm
 
-‣ The script:
+▸ The script:
 
 * Keeps only the 7 most recent daily backups
 
@@ -185,8 +185,6 @@ backup-system/
 ```
 
 # D. Design Decisions
-
-- Why This Approach?
 
 * Simple and portable Bash scripting
 
@@ -282,6 +280,7 @@ backup-system/
  GitHub   : https://github.com/vempatisriram6-dev/DevOps-Practice-Test.git
  Project  : DevOps Practice Test Repository
 ```
+
 
 
 
