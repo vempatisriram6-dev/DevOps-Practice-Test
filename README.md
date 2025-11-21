@@ -1,8 +1,8 @@
       Automated Backup System (Bash Script Project)
       
-‣ A simple Bash-based backup automation system that helps you take automatic backups, verify them, and clean up old ones - all with one command.
+* A simple Bash-based backup automation system that helps you take automatic backups, verify them, and clean up old ones - all with one command.
 
-‣ It’s perfect for students, developers, or DevOps learners who want to automate local backups and understand backup rotation concepts.
+* It’s perfect for students, developers, or DevOps learners who want to automate local backups and understand backup rotation concepts.
 
 ---
 
@@ -46,32 +46,35 @@ This automation script:
 * tar and sha256sum utilities (installed by default on most systems)
 
 ### Step 2: Clone the Repository
-* git clone https://github.com/vempatisriram6-dev/DevOps-Practice-Test.git
+
+```text
+ git clone https://github.com/vempatisriram6-dev/DevOps-Practice-Test.git
   
-* cd backup-system
+ cd backup-system
+
+```
 
 ### Step 3: Configure the Backup
 
-‣ Open the file backup.config and update these paths:
-
-* BACKUP_SOURCE="/c/Users/vempa/Desktop/test_folder"
+```text
+ BACKUP_SOURCE="/c/Users/vempa/Desktop/test_folder"
  
-* BACKUP_DESTINATION="/c/Users/vempa/Desktop/backups"
+ BACKUP_DESTINATION="/c/Users/vempa/Desktop/backups"
  
-* LOG_FILE="./logs/backup.log"
+ LOG_FILE="./logs/backup.log"
 
-* EXCLUDE_PATTERNS=".git,node_modules,.cache"
+ EXCLUDE_PATTERNS=".git,node_modules,.cache"
 
-* DAILY_KEEP=7
-* WEEKLY_KEEP=4
-* MONTHLY_KEEP=3
+ DAILY_KEEP=7
+ WEEKLY_KEEP=4
+ MONTHLY_KEEP=3
 
-
-* You can adjust retention numbers or excluded folders anytime.
+```
 
 ### Step 4: Run the Backup
-* ./backup.sh
-
+```text
+ ./backup.sh
+```
 
 ‣ This will:
 
@@ -84,28 +87,31 @@ This automation script:
 ### Step 5: Verify the Backup
 
 * To verify that the backup was created and matches its checksum:
+```text
+ ./verify_backup.sh backup-YYYY-MM-DD-HHMM.tar.gz
+```
 
-* ./verify_backup.sh backup-YYYY-MM-DD-HHMM.tar.gz
-
-
-‣ If verification passes, you’ll see:
-
-* [SUCCESS] Checksum verified successfully 
+‣ If verification passes:
+```
+ [SUCCESS] Checksum verified successfully
+```
 
 ### Step 6: Check Logs
 
 ‣ All activities (start, success, cleanup, errors) are stored here:
-
-* logs/backup.log
-
+```
+ logs/backup.log
+```
  ---
  
 # Example log:
 
-* [INFO] Backup started at 2025-11-03 19:30:00
-* [SUCCESS] Backup completed: /c/Users/vempa/Desktop/backups/backup-2025-11-03-1930.tar.gz
-* [INFO] Cleanup completed
+```text
+ [INFO] Backup started at 2025-11-03 19:30:00
+ [SUCCESS] Backup completed: /c/Users/vempa/Desktop/backups/backup-2025-11-03-1930.tar.gz
+ [INFO] Cleanup completed
 
+```
 ---
 
 # Step 7: Folder Structure
@@ -140,12 +146,12 @@ backup-system/
 
 ‣ Example cron entry (Linux):
 
-* 0 2 * * * /path/to/backup-system/backup.sh
+```text
 
+ 0 2 * * * /path/to/backup-system/backup.sh
 
-*  runs the backup every day at 2 AM.
-
-   ---
+```
+ ---
 
 ### C. How It Works:
 ‣ Rotation Algorithm
@@ -166,14 +172,22 @@ backup-system/
 
 ‣ For every backup, a .sha256 file is created:
 
-* sha256sum backup-2025-11-03-1930.tar.gz > backup-2025-11-03-1930.tar.gz.sha256
+```text
 
+ sha256sum backup-2025-11-03-1930.tar.gz > backup-2025-11-03-1930.tar.gz.sha256
+
+```
 
  ‣ You can recheck integrity anytime using:
 
-* sha256sum -c backup-2025-11-03-1930.tar.gz.sha256
+```text
+
+ sha256sum -c backup-2025-11-03-1930.tar.gz.sha256
+
+```
 
 ### D. Design Decisions
+
 ‣ Why This Approach?
 
 * Simple and portable Bash scripting
@@ -182,7 +196,7 @@ backup-system/
 
 * Ideal for beginners learning Linux + DevOps automation
 
-# Challenges Faced:
+#### Challenges Faced:
 
 *  Windows compatibility for Git Bash
 
@@ -190,7 +204,7 @@ backup-system/
 
 * Proper logging and simultaneous screen display
 
-# How They Were Solved
+#### How They Were Solved
 
 * Used consistent POSIX-style paths
 
@@ -200,20 +214,22 @@ Added checksum validation to verify backup integrity
 
 #  E. Testing
 **  Functional Tests
+```text
 
-# Test Description	Result
+| Test                     | Description                          | Result            |
+|--------------------------|--------------------------------------|-------------------|
+| Backup creation          | Run `./backup.sh`                    | Success           |
+| Backup rotation          | Created multiple backups             | Old backups removed correctly |
+| Checksum verification    | Run `./verify_backup.sh file.tar.gz` | Passed            |
+| Excluded patterns        | `.git`, `node_modules`, `.cache`     | Ignored as expected |
+| Error handling           | Tried non-existent source folder     | Gracefully handled |
+| Log generation           | Checked `logs/backup.log`            | All events recorded |
+| Integrity check failure  | Modified backup intentionally         | Error detected     |
 
-* Backup creation	Run ./backup.sh	 Success
-
-* Backup rotation	Created multiple backups	 Old backups removed
-
-* Checksum verification	Using verify_backup.sh	 Passed
-
-* Exclude patterns	.git, node_modules, .cache	 Ignored
-
-* Error handling	Tried invalid source folder	 Graceful error
-
+```
 # Example Backup Log:
+
+```text
 
 [INFO] Backup started at 2025-11-03 19:30:00
 
@@ -221,7 +237,9 @@ Added checksum validation to verify backup integrity
 
 [INFO] Rotation check complete – old backups removed
 
-[INFO] Backup finished successfully 
+[INFO] Backup finished successfully
+
+```
 
  ### F. Known Limitations
 
@@ -248,22 +266,17 @@ Added checksum validation to verify backup integrity
  ---
 
 #  Example  Summary:
+```text
+| Command                                   | Description                      |
+|-------------------------------------------|----------------------------------|
+| ./backup.sh                               | Create a new backup              |
+| ./verify_backup.sh backup-file.tar.gz     | Verify checksum                  |
+| cat logs/backup.log                       | View backup logs                 |
+| ls /c/Users/vempa/Desktop/backups         | View all backups                 |
+| ./push_all.sh                             | (Optional) Commit + push to GitHub |
 
-‣ Command	Description:
-
-./backup.sh	Create a new backup
-
-./verify_backup.sh backup-file.tar.gz	Verify checksum
-
-cat logs/backup.log	View logs
-
-ls /c/Users/vempa/Desktop/backups	View all backups
-
-./push_all.sh	(Optional) Commit + Push to GitHub
-
+```
 ---
-
-
 # Author:
 
 ```text
@@ -272,6 +285,7 @@ V. Sriram
  
 Project: DevOps Practice Test Repository
 ```
+
 
 
 
