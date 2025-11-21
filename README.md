@@ -1,8 +1,8 @@
       Automated Backup System (Bash Script Project)
+      
+‣ A simple Bash-based backup automation system that helps you take automatic backups, verify them, and clean up old ones - all with one command.
 
-* A simple Bash-based backup automation system that helps you take automatic backups, verify them, and clean up old ones - all with one command.
-
-* It’s perfect for students, developers, or DevOps learners who want to automate local backups and understand backup rotation concepts.
+‣ It’s perfect for students, developers, or DevOps learners who want to automate local backups and understand backup rotation concepts.
 
 ---
 
@@ -22,9 +22,9 @@
 
 * Logging every backup operation into logs/backup.log
 
-# Why It’s Useful
+### Why It’s Useful
 
-Manual backups are time-consuming and prone to human error.
+‣ Manual backups are time-consuming and prone to human error.
 This automation script:
 
 * Keeps your files safe automatically
@@ -39,7 +39,7 @@ This automation script:
 
 ### Step 1: Prerequisites
 
-<> Make sure you have:
+‣ Make sure you have:
 
 * Git Bash on Windows or Terminal on Linux/Mac
 
@@ -52,7 +52,7 @@ This automation script:
 
 ### Step 3: Configure the Backup
 
-<> Open the file backup.config and update these paths:
+‣ Open the file backup.config and update these paths:
 
 * BACKUP_SOURCE="/c/Users/vempa/Desktop/test_folder"
  
@@ -73,7 +73,7 @@ This automation script:
 * ./backup.sh
 
 
-<> This will:
+‣ This will:
 
 * Create a new backup in your destination folder
 
@@ -88,13 +88,13 @@ This automation script:
 * ./verify_backup.sh backup-YYYY-MM-DD-HHMM.tar.gz
 
 
-<> If verification passes, you’ll see:
+‣ If verification passes, you’ll see:
 
 * [SUCCESS] Checksum verified successfully 
 
 ### Step 6: Check Logs
 
-<> All activities (start, success, cleanup, errors) are stored here:
+‣ All activities (start, success, cleanup, errors) are stored here:
 
 * logs/backup.log
 
@@ -109,7 +109,8 @@ This automation script:
 ---
 
 # Step 7: Folder Structure
-'''bash
+
+```text
 backup-system/
 ├── backup.sh               # Main backup script
 ├── verify_backup.sh        # Backup verification script
@@ -119,13 +120,17 @@ backup-system/
 ├── screenshots/
 │   └── backup-output.png   # Example output screenshot
 └── README.md               # Documentation
-'''bash
+
+```
 
 ---
 
 # Step 8: Example Output (Screenshot)
 
-• Backup output shown in Git Bash:
+‣ Backup output shown in Git Bash:
+
+![Screenshot](screenshots/backup-output.png)
+
 
 ---
 
@@ -133,17 +138,19 @@ backup-system/
 
 * You can automate this with Windows Task Scheduler or Linux cron jobs.
 
-• Example cron entry (Linux):
+‣ Example cron entry (Linux):
 
 * 0 2 * * * /path/to/backup-system/backup.sh
 
 
 *  runs the backup every day at 2 AM.
 
-# C. How It Works:
-• Rotation Algorithm
+   ---
 
-• The script:
+### C. How It Works:
+‣ Rotation Algorithm
+
+‣ The script:
 
 * Keeps only the 7 most recent daily backups
 
@@ -157,17 +164,17 @@ backup-system/
 
 # Checksum Creation
 
-• For every backup, a .sha256 file is created:
+‣ For every backup, a .sha256 file is created:
 
 * sha256sum backup-2025-11-03-1930.tar.gz > backup-2025-11-03-1930.tar.gz.sha256
 
 
-<> You can recheck integrity anytime using:
+ ‣ You can recheck integrity anytime using:
 
 * sha256sum -c backup-2025-11-03-1930.tar.gz.sha256
 
-# D. Design Decisions
-• Why This Approach?
+### D. Design Decisions
+‣ Why This Approach?
 
 * Simple and portable Bash scripting
 
@@ -194,7 +201,7 @@ Added checksum validation to verify backup integrity
 #  E. Testing
 **  Functional Tests
 
-# Test	Description	Result
+# Test Description	Result
 
 * Backup creation	Run ./backup.sh	 Success
 
@@ -216,7 +223,7 @@ Added checksum validation to verify backup integrity
 
 [INFO] Backup finished successfully 
 
- # F. Known Limitations
+ ### F. Known Limitations
 
 * Script doesn’t handle remote/cloud backups yet (local only)
 
@@ -225,6 +232,8 @@ Added checksum validation to verify backup integrity
 * Rotation works by filename date, not by file size
 
 * No real-time progress bar (can be added later)
+
+ ---
 
 # Future Improvements:
 
@@ -236,9 +245,11 @@ Added checksum validation to verify backup integrity
 
 * Integrate with cron logs or systemd timers
 
+ ---
+
 #  Example  Summary:
 
-<> Command	Description:
+‣ Command	Description:
 
 ./backup.sh	Create a new backup
 
@@ -250,13 +261,18 @@ ls /c/Users/vempa/Desktop/backups	View all backups
 
 ./push_all.sh	(Optional) Commit + Push to GitHub
 
+---
+
 
 # Author:
 
+```text
 V. Sriram
  GitHub: @vempatisriram6-dev
  
 Project: DevOps Practice Test Repository
+```
+
 
 
 
