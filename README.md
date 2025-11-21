@@ -168,7 +168,7 @@ backup-2025-xx.tar.gz.sha256
 ```
 
  
-### Example log:
+### Example backup.log:
 
 
 ```
@@ -353,6 +353,7 @@ sha256sum -c backup.tar.gz.sha256
 **Project:** DevOps Practice Test Repository
 
 ```
+
 
 
 
