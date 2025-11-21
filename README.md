@@ -1,4 +1,4 @@
-      Automated Backup System (Bash Script Project)
+# Automated Backup System (Bash Script Project)
       
 * A simple Bash-based backup automation system that helps you take automatic backups, verify them, and clean up old ones - all with one command.
 
@@ -24,7 +24,7 @@
 
 ### Why It’s Useful
 
-‣ Manual backups are time-consuming and prone to human error.
+- Manual backups are time-consuming and prone to human error.
 This automation script:
 
 * Keeps your files safe automatically
@@ -39,7 +39,7 @@ This automation script:
 
 ### Step 1: Prerequisites
 
-‣ Make sure you have:
+- Make sure you have:
 
 * Git Bash on Windows or Terminal on Linux/Mac
 
@@ -76,7 +76,7 @@ This automation script:
  ./backup.sh
 ```
 
-‣ This will:
+- This will:
 
 * Create a new backup in your destination folder
 
@@ -91,14 +91,14 @@ This automation script:
  ./verify_backup.sh backup-YYYY-MM-DD-HHMM.tar.gz
 ```
 
-‣ If verification passes:
+- If verification passes:
 ```
  [SUCCESS] Checksum verified successfully
 ```
 
 ### Step 6: Check Logs
 
-‣ All activities (start, success, cleanup, errors) are stored here:
+- All activities (start, success, cleanup, errors) are stored here:
 ```
  logs/backup.log
 ```
@@ -114,7 +114,7 @@ This automation script:
 ```
 ---
 
-# Step 7: Folder Structure
+### Step 7: Folder Structure
 
 ```text
 backup-system/
@@ -131,20 +131,18 @@ backup-system/
 
 ---
 
-# Step 8: Example Output (Screenshot)
-
-‣ Backup output shown in Git Bash:
+### Step 8: Example Output (Screenshot)
 
 ![Screenshot](screenshots/backup-output.png)
 
 
 ---
 
-# Step 9: Automation (Optional)
+### Step 9: Automation (Optional)
 
 * You can automate this with Windows Task Scheduler or Linux cron jobs.
 
-‣ Example cron entry (Linux):
+- Example cron entry (Linux):
 
 ```text
 
@@ -153,7 +151,7 @@ backup-system/
 ```
  ---
 
-### C. How It Works:
+# C. How It Works:
 ‣ Rotation Algorithm
 
 ‣ The script:
@@ -168,9 +166,9 @@ backup-system/
 
 * This saves disk space while ensuring recovery options.
 
-# Checksum Creation
+### Checksum Creation
 
-‣ For every backup, a .sha256 file is created:
+- For every backup, a .sha256 file is created:
 
 ```text
 
@@ -178,7 +176,7 @@ backup-system/
 
 ```
 
- ‣ You can recheck integrity anytime using:
+ - You can recheck integrity anytime using:
 
 ```text
 
@@ -186,9 +184,9 @@ backup-system/
 
 ```
 
-### D. Design Decisions
+# D. Design Decisions
 
-‣ Why This Approach?
+- Why This Approach?
 
 * Simple and portable Bash scripting
 
@@ -210,7 +208,7 @@ backup-system/
 
 * Implemented dual logging using tee command
 
-Added checksum validation to verify backup integrity
+* Added checksum validation to verify backup integrity
 
 #  E. Testing
 **  Functional Tests
@@ -241,7 +239,7 @@ Added checksum validation to verify backup integrity
 
 ```
 
- ### F. Known Limitations
+ # F. Known Limitations
 
 * Script doesn’t handle remote/cloud backups yet (local only)
 
@@ -280,11 +278,11 @@ Added checksum validation to verify backup integrity
 # Author:
 
 ```text
-V. Sriram
- GitHub: @vempatisriram6-dev
- 
-Project: DevOps Practice Test Repository
+ Name     : V. Sriram
+ GitHub   : https://github.com/vempatisriram6-dev/DevOps-Practice-Test.git
+ Project  : DevOps Practice Test Repository
 ```
+
 
 
 
