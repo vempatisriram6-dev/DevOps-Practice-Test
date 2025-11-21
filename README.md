@@ -103,42 +103,94 @@ This automation script:
  logs/backup.log
 ```
  ---
+ ### Step 7: Email Notification (Simulated)
+ 
+* The script writes a message to:
+```
+ email.txt
+
+```
+* Example output in email.txt:
+  
+```
+Backup Completed Successfully at Mon Jan 20 10:32:12 IST 2025
+
+```
+### Step 8: Perform Incremental Backup
+* Command:
+```
+ ./backup.sh --incremental
+```
+* Output Created:
+```
+[INFO] Performing incremental backup...
+[SUCCESS] Incremental backup created: /backups/backup-2025-xx.tar.gz
+```
+* Files Created: 
+```
+snapshot.info
+backup-2025-xx.tar.gz
+backup-2025-xx.tar.gz.sha256
+```
+
  
 ### Example log:
 
 ```
- [INFO] Backup started at 2025-11-03 19:30:00
- [SUCCESS] Backup completed: /c/Users/vempa/Desktop/backups/backup-2025-11-03-1930.tar.gz
- [INFO] Cleanup completed
+[INFO] Starting backup...
+[INFO] Backup started at 2025-11-04 12:26:26
+[INFO] Backup started at 2025-11-04 12:26:39
+[INFO] Backup started at 2025-11-04 12:38:05
+tar: Removing leading `/' from member names
+[SUCCESS] Backup completed: /c/Users/vempa/Desktop/backups/backup-2025-11-04-1238.tar.gz
+[INFO] Cleaning up old backups...
+[INFO] Cleanup completed 
+[INFO] Disk space check passed.
+[INFO] Starting full backup...
+[SUCCESS] Backup created: /c/Users/vempa/Desktop/backups/backup-2025-11-21-1433.tar.gz
+[INFO] Checksum file created.
+[INFO] Starting rotation cleanup...
+[INFO] Rotation complete.
+[SUCCESS] Backup process completed!
+[INFO] Listing available backups...
+[ERROR] Backup file not found!
+[SUCCESS] Backup restored to /c/Users/vempa/Desktop/restore_output
+[INFO] Performing incremental backup...
+[SUCCESS] Incremental backup created: /c/Users/vempa/Desktop/backups/backup-2025-11-21-1438.tar.gz
 
 ```
 ---
 
-### Step 7: Folder Structure
+### Step 9: Folder Structure
 
 ```
-backup-system/
-├── backup.sh               # Main backup script
-├── verify_backup.sh        # Backup verification script
-├── backup.config           # Configuration file
+DevOps-Practice-Test/
+├── backup.sh                 # Main backup script (full + incremental + restore + list)
+├── verify_backup.sh          # Checksum verification script
+├── backup.config             # Configuration file
 ├── logs/
-│   └── backup.log          # Log file
+│   └── backup.log            # Log file (auto-generated)
 ├── screenshots/
-│   └── backup-output.png   # Example output screenshot
-└── README.md               # Documentation
+│   ├── backup-output.png     # Screenshot 1: Backup output
+│   └── backup-output-2.png   # Screenshot 2: Additional backup output
+├── test_folder/              # Sample folder for testing backups
+├── email.txt                 # Simulated email notifications
+├── snapshot.info             # Tar snapshot file for incremental backups
+└── README.md                 # Full project documentation
 
 ```
 
 ---
 
-### Step 8: Example Output (Screenshot)
+### Step 10: Example Output (Screenshot)
 
 ![Screenshot](screenshots/backup-output.png)
 
+![Backup Output 2](screenshots/backup-output-2.png)
 
 ---
 
-### Step 9: Automation (Optional)
+### Step 11: Automation (Optional)
 
 * You can automate this with Windows Task Scheduler or Linux cron jobs.
 
@@ -177,7 +229,7 @@ backup-system/
 
  - You can recheck integrity anytime using:
 
-```text
+```
 sha256sum -c backup.tar.gz.sha256
 
 ```
@@ -220,21 +272,7 @@ sha256sum -c backup.tar.gz.sha256
 | Log generation           | Checked `logs/backup.log`            | All events recorded |
 | Integrity check failure  | Modified backup intentionally         | Error detected     |
 
-```
-### Example Backup Log:
-
-```text
-
-[INFO] Backup started at 2025-11-03 19:30:00
-
-[SUCCESS] Backup completed: /c/Users/vempa/Desktop/backups/backup-2025-11-03-1930.tar.gz
-
-[INFO] Rotation check complete – old backups removed
-
-[INFO] Backup finished successfully
-
-```
-
+---
  # F. Known Limitations
 
 * Script doesn’t handle remote/cloud backups yet (local only)
@@ -278,6 +316,7 @@ sha256sum -c backup.tar.gz.sha256
  GitHub   : https://github.com/vempatisriram6-dev/DevOps-Practice-Test.git
  Project  : DevOps Practice Test Repository
 ```
+
 
 
 
