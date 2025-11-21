@@ -47,7 +47,7 @@ This automation script:
 
 ### Step 2: Clone the Repository
 
-```text
+```
  git clone https://github.com/vempatisriram6-dev/DevOps-Practice-Test.git
   
  cd backup-system
@@ -56,7 +56,7 @@ This automation script:
 
 ### Step 3: Configure the Backup
 
-```text
+```
  BACKUP_SOURCE="/c/Users/vempa/Desktop/test_folder"
  
  BACKUP_DESTINATION="/c/Users/vempa/Desktop/backups"
@@ -72,7 +72,7 @@ This automation script:
 ```
 
 ### Step 4: Run the Backup
-```text
+```
  ./backup.sh
 ```
 
@@ -87,7 +87,7 @@ This automation script:
 ### Step 5: Verify the Backup
 
 * To verify that the backup was created and matches its checksum:
-```text
+```
  ./verify_backup.sh backup-YYYY-MM-DD-HHMM.tar.gz
 ```
 
@@ -106,7 +106,7 @@ This automation script:
  
 # Example log:
 
-```text
+```
  [INFO] Backup started at 2025-11-03 19:30:00
  [SUCCESS] Backup completed: /c/Users/vempa/Desktop/backups/backup-2025-11-03-1930.tar.gz
  [INFO] Cleanup completed
@@ -116,7 +116,7 @@ This automation script:
 
 ### Step 7: Folder Structure
 
-```text
+```
 backup-system/
 ├── backup.sh               # Main backup script
 ├── verify_backup.sh        # Backup verification script
@@ -144,7 +144,7 @@ backup-system/
 
 - Example cron entry (Linux):
 
-```text
+```
 
  0 2 * * * /path/to/backup-system/backup.sh
 
@@ -170,7 +170,7 @@ backup-system/
 
 - For every backup, a .sha256 file is created:
 
-```text
+```
 
  sha256sum backup-2025-11-03-1930.tar.gz > backup-2025-11-03-1930.tar.gz.sha256
 
@@ -210,7 +210,7 @@ backup-system/
 
 #  E. Testing
 
-```text
+```
 
 | Test                     | Description                          | Result            |
 |--------------------------|--------------------------------------|-------------------|
@@ -262,7 +262,7 @@ backup-system/
  ---
 
 #  Example  Summary:
-```text
+```
 | Command                                   | Description                      |
 |-------------------------------------------|----------------------------------|
 | ./backup.sh                               | Create a new backup              |
@@ -275,11 +275,12 @@ backup-system/
 ---
 # Author:
 
-```text
+```
  Name     : V. Sriram
  GitHub   : https://github.com/vempatisriram6-dev/DevOps-Practice-Test.git
  Project  : DevOps Practice Test Repository
 ```
+
 
 
 
